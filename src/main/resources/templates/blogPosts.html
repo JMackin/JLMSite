@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8"/>
+
+<header th:insert="fragments/header">
+	</header>
+
+<body>
+
+	<div>
+	<table>
+		<thead>
+			<tr>
+				<th>Post Title</th>
+				<th>Made on..</th>
+				<th>View Blog Post</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="bp: ${blogtitlelist}">
+				<td> <span th:text="${bp.postTitle}"></span></td>
+				<td> <span th:text="${bp.postDateTime}"></span></td>
+				<td>
+					<a th:href="@{/viewAPost/{id}(id=${bp.id})}">View</a>
+				</td>
+			</tr>
+		</tbody>
+		
+	</table>
+	</div>
+	
+
+</body>
+</html>

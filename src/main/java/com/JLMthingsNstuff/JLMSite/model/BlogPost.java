@@ -74,7 +74,9 @@ public class BlogPost {
 	public void setPostAuthor(String postAuthor) {
 		this.postAuthor = postAuthor;
 	}
-
-
 	
+
 }
+
+
+

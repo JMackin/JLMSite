@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.JLMthingsNstuff.JLMSite.model.BlogPost;
 import com.JLMthingsNstuff.JLMSite.repository.BlogPostRepository;
+import com.JLMthingsNstuff.JLMSite.repository.BlogPostsNamesAndDates;
 
 @Service
 public class BlogPostService {
@@ -48,6 +49,17 @@ public class BlogPostService {
 		}
 		
 		return "Post titled " + blogPost.get().getPostTitle() + " from " + blogPost.get().getPostDateTime();
+	}
+	
+	public List<BlogPostsNamesAndDates> getListOfBlogEntryTitles()
+	{
+		for (BlogPostsNamesAndDates i : blogPostRepository.getListOfTitlesAndIds())
+		{
+			System.out.println(i.getPostTitle());
+		}
+	
+		return blogPostRepository.getListOfTitlesAndIds();
+		
 	}
 
 }

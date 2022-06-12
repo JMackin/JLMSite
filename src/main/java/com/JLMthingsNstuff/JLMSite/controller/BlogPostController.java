@@ -2,6 +2,9 @@ package com.JLMthingsNstuff.JLMSite.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.JLMthingsNstuff.JLMSite.model.BlogPost;
+import com.JLMthingsNstuff.JLMSite.repository.BlogPostsNamesAndDates;
 import com.JLMthingsNstuff.JLMSite.service.BlogPostService;
 
 @Controller
@@ -44,6 +48,17 @@ public class BlogPostController {
 		model.addAttribute("blogpost", bp);
 		
 		return "viewAPost";
+	}
+	
+	@GetMapping("/blogPosts")
+	public String listBlogPosts(Model model)
+	{
+
+		List<BlogPostsNamesAndDates> bpl = blogPostService.getListOfBlogEntryTitles();
+		
+		model.addAttribute("blogtitlelist",bpl);
+		
+		return "blogPosts";
 	}
 	
 	
