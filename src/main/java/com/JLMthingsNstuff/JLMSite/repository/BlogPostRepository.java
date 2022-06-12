@@ -3,9 +3,9 @@ package com.JLMthingsNstuff.JLMSite.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.JLMthingsNstuff.JLMSite.model.Post;
+import com.JLMthingsNstuff.JLMSite.model.BlogPost;
 
-public interface PostRepository extends JpaRepository<Post,Long>{
+public interface BlogPostRepository extends JpaRepository<BlogPost,Long>{
 	
 	
 	

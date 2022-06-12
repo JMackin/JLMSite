@@ -8,32 +8,44 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.JLMthingsNstuff.JLMSite.model.Post;
-import com.JLMthingsNstuff.JLMSite.service.PostService;
+import com.JLMthingsNstuff.JLMSite.model.BlogPost;
+import com.JLMthingsNstuff.JLMSite.service.BlogPostService;
 
 @Controller
-public class MakePostController {
+public class BlogPostController {
 	
 	@Autowired
-	PostService postService;
+	BlogPostService blogPostService;
 
 	@GetMapping("/MakeAPost")
 	public String showMakePost(Model model)
 	{
-		Post post = new Post();
+		BlogPost blogPost = new BlogPost();
 		
-		model.addAttribute("post",post);
+		model.addAttribute("post",blogPost);
 		
 		return "makeApost";
 	}
 	
 	@PostMapping("/SavePost")
-	public String savePost(@ModelAttribute("post") Post post)
+	public String savePost(@ModelAttribute("post") BlogPost blogPost)
 	{
-		postService.savePost(post);
+		blogPostService.savePost(blogPost);
 		
 		return "redirect:/";
 	}
+	
+	@GetMapping("viewAPost/{id}")
+	public String viewPostById(@PathVariable Long id, Model model)
+	{
+		
+		BlogPost bp = blogPostService.getPostById(id);
+		
+		model.addAttribute("blogpost", bp);
+		
+		return "viewAPost";
+	}
+	
 	
 	/*
 	@GetMapping ("editAPost/{id}")

@@ -4,17 +4,20 @@
 <head>
 <link th:href="@{/style/main.css}" rel="stylesheet" />
 </head>
-	<body>
-	
-	<header class="homeBanner">
-		<h1 id = "hometitle">It's the JLM Site !!!</h1>
-	</header>
 
+	<!-- Inserts Header html with title and banner from fragments-->
+	<header th:insert="fragments/header">
+	</header>
+	
+	<body>
 	<br></br>
 	
 	<nav>
-		<a th:href="@{/ListOfVisitors}">List of Visitors</a>
-		<a th:href="@{https://google.com}">Google</a>
+		<a th:href="@{/ListOfVisitors}"> List of Visitors </a>
+		<b>||</b>
+		<a th:href="@{https://google.com}"> Google </a>
+		<b>||</b>
+		<a th:href="@{/MakeAPost}"> Make a Blog Post </a>
 	</nav>
 	
 	<br></br>

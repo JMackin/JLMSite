@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.Table;
+import javax.persistence.Table;
 
 
 import java.time.LocalDateTime;
@@ -12,8 +12,8 @@ import java.time.format.DateTimeFormatter;
 
 
 @Entity
-//@Table(name = "BLOGPOSTS")
-public class Post {
+@Table(name = "BLOGPOSTS")
+public class BlogPost {
 	
 	private long id;
 	private String postDateTime;
@@ -21,14 +21,13 @@ public class Post {
 	private String postContent;
 	private String postAuthor;
 	
-	public Post()
+	public BlogPost()
 	{
-		
+		setPostDateTime("now");
 	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	public long getId() {
 		return id;
 	}
@@ -42,10 +41,10 @@ public class Post {
 		return postDateTime;
 	}
 
-	public void setPostDateTime(LocalDateTime postDateTime) {
+	public void setPostDateTime(String postDT) {
 		
 		final LocalDateTime ldt = LocalDateTime.now();
-		final DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		final DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
 		
 		String pdt = sdf.format(ldt);
 		

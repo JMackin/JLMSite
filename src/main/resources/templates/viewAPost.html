@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+
+<header th:insert="fragments/header">
+	</header>
+	
+
+<body>
+
+	<h3 th:text="${blogpost.postTitle}"></h3>
+	<p th:text="${blogpost.postDateTime}" ></p>
+	<br>
+	<br>
+	<p th:text="${blogpost.postContent}">
+	</p>
+
+</body>
+</html>

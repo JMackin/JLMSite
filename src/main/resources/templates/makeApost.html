@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <!-- This is for using Thymeleaf -->
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
 <meta charset="UTF-8">
-<title>Make A Post</title>
+
+<header th:insert="fragments/header">
+	</header>
+	
 
 <body>
-	<h3>Make a new Post</h3>
+	<h4>Make a new Post</h4>
 	<!-- The th:action="@{/saveVisitor}" expression directs the form to POST to the /SaveVisitor endpoint.
 		 The th:object="${visitor}" expression declares the model object to use for collecting the form data.
 		 The three form fields, expressed with th:field, correspond to the fields in the Visitor object. -->
@@ -22,19 +24,18 @@
 		<br>
 		<div class="row">
 			<div class="input-field col s6">
-				<textarea id="post_Content" th:field="*{postContent}">
+				<textarea id="post_content" th:field="*{postContent}" style="width: 75%; height: 117px; ">
 				Enter Your Thoughts...
 				</textarea>
-				<label for="post_Content">Content</label>
 			</div>
 		</div>
-		<button type="submit" class="waves-effect waves-light btn">Submit Post</button>
+		<button type="submit">Submit Post</button>
 	</form>
+	
 	<br>
 	<!-- The link which sends GET request to "/"  -->
 	<a th:href="@{/}"
 		class="blue-text">Back</a>
-</body>
-
+		
 </body>
 </html>
