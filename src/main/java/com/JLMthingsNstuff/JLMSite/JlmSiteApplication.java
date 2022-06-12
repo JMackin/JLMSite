@@ -2,9 +2,9 @@ package com.JLMthingsNstuff.JLMSite;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.JLMthingsNstuff.JLMSite.DataBaseAction.*;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 public class JlmSiteApplication {
 
 	public static void main(String[] args) {

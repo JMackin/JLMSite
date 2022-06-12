@@ -1,12 +1,14 @@
-package com.JLMthingsNstuff.JLMSite.domain;
+package com.JLMthingsNstuff.JLMSite.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//import javax.persistence.Table;
 
 //I'm guessing this is what might be referred to as the "model" (for a visitor) in MVC
 @Entity
+//@Table(name="visitors")
 public class Visitor {
 	
 	@Id
@@ -26,8 +28,8 @@ public class Visitor {
 		return firstName;
 	}
 
-	public void setFirsName(String firsName) {
-		this.firstName = firsName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {

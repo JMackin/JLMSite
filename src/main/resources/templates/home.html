@@ -1,9 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<link th:href="@{/style/main.css}" rel="stylesheet" />
 </head>
-<body style="max-width: 960px; margin: 16px auto; padding: 16px">
-	<h3>It's the JLM Site !!!</h3>
+	<body>
+	
+	<header class="homeBanner">
+		<h1 id = "hometitle">It's the JLM Site !!!</h1>
+	</header>
+
+	<br></br>
+	
+	<nav>
+		<a th:href="@{/ListOfVisitors}">List of Visitors</a>
+		<a th:href="@{https://google.com}">Google</a>
+	</nav>
+	
+	<br></br>
+	
+	<p>Login if you're john</p>
+	
+	
+	
 	
 	</body>
 </html>

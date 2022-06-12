@@ -1,0 +1,16 @@
+.homebanner {
+	width: 100%;
+	margin: auto;
+}
+
+#hometitle {
+	text-align: center;
+	width: 80%;
+	border: 3px solid black;
+	margin: auto;
+}
+
+
+body {
+	
+}

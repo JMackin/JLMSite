@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.JLMthingsNstuff.JLMSite.domain.Visitor;
+import com.JLMthingsNstuff.JLMSite.model.Visitor;
 import com.JLMthingsNstuff.JLMSite.service.VisitorService;
 
 @Controller		//This means this class is a controller (duh) the C in MVC
@@ -29,7 +29,7 @@ public class VisitorController {
 		//	We set all visitors data to "visitorList"
 		model.addAttribute("visitorList",visitorService.getAllVisitors());
 		
-		//show the visitorlist.html template !!NOT YET MADE!!
+		//show the visitorlist.html template
 		return "visitorlist";
 	}
 	
@@ -43,7 +43,7 @@ public class VisitorController {
 		//We can use this attribute "visitor" to perform server-side rendering of the HTML with Thymeleaf.
 		model.addAttribute("visitor",vis);
 		
-		//show the new_visitor.html template !!NOT YET MADE!!
+		//show the new_visitor.html template 
 		return "new_visitor";
 	}
 	
@@ -51,7 +51,7 @@ public class VisitorController {
 	@PostMapping("/SaveVisitor")
 	public String saveVisitor(@ModelAttribute("visitor") Visitor vis)
 	//@ModelAttribute  binds the object called "vis" of request body from the POST request into the 
-	//employee parameter of the saveVisitor() method.
+	//visitor parameter of the saveVisitor() method.
 	{
 		visitorService.saveVisitor(vis);
 		
@@ -67,7 +67,7 @@ public class VisitorController {
 		Visitor vis = visitorService.getVisitorById(id);
 		
 		//We can use this attribute "visitor" to perform server-side rendering of the HTML with Thymeleaf.
-		model.addAttribute("visitor",vis); //Using get() returns the value (in this case the visitor object) of the Optional object
+		model.addAttribute("visitor",vis); 
 		
 		//show update_visitor.html template !!NOT YET MADE!!
 		return "update_visitor";

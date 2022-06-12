@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.JLMthingsNstuff.JLMSite.domain.Visitor;
+import com.JLMthingsNstuff.JLMSite.model.Visitor;
 import com.JLMthingsNstuff.JLMSite.repository.VisitorRepository;
 
 @Service // This means that this class is a service
@@ -42,7 +42,7 @@ public class VisitorService {
 		{
 			throw new RuntimeException("NoOne by that Id");
 		}
-		return vis.get();
+		return vis.get();//Using get() returns the value (in this case the visitor object) of the Optional object
 	}
 	
 	//delete a visitor by Id
