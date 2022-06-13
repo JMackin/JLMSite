@@ -3,9 +3,11 @@
 	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <link th:href="@{/style/main.css}" rel="stylesheet" />
+<title>The JLM Site</title>
 </head>
 
-	<!-- Inserts Header html with title and banner from fragments-->
+
+	<!-- Inserts Header html with banner from fragments-->
 	<header th:insert="fragments/header">
 	</header>
 	
@@ -18,14 +20,13 @@
 		<a th:href="@{https://google.com}"> Google </a>
 		<b>||</b>
 		<a th:href="@{/MakeAPost}"> Make a Blog Post </a>
+		<b>||</b>
+		<a th:href="@{/blogPosts}">View Entries </a>
 	</nav>
 	
 	<br></br>
 	
 	<p>Login if you're john</p>
-	
-	
-	
 	
 	</body>
 </html>

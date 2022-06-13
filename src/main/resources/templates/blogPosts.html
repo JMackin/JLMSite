@@ -7,30 +7,30 @@
 	</header>
 
 <body>
-
+	<h2>Blog Entries</h2>
 	<div>
-	<table>
+	<table style="width: 60%;">
 		<thead>
 			<tr>
-				<th>Post Title</th>
-				<th>Made on..</th>
-				<th>View Blog Post</th>
+				<th align="left">Post Title</th>
+				<th style="width: 30%; ">Made on..</th>
 			</tr>
 		</thead>
 		
 		<tbody>
 			<tr th:each="bp: ${blogtitlelist}">
-				<td> <span th:text="${bp.postTitle}"></span></td>
+				<td> <a th:href="@{/viewAPost/{id}(id=${bp.id})}" th:text="${bp.postTitle}"></a></td>
 				<td> <span th:text="${bp.postDateTime}"></span></td>
-				<td>
-					<a th:href="@{/viewAPost/{id}(id=${bp.id})}">View</a>
-				</td>
+			
 			</tr>
 		</tbody>
 		
 	</table>
 	</div>
 	
-
 </body>
+
+<footer th:insert="fragments/footer">
+</footer>
+
 </html>
