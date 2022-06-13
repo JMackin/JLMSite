@@ -3,6 +3,8 @@ package com.JLMthingsNstuff.JLMSite.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,16 +26,24 @@ public class BlogPostController {
 	@GetMapping("/MakeAPost")
 	public String showMakePost(Model model)
 	{
+		
 		BlogPost blogPost = new BlogPost();
 		
-		model.addAttribute("post",blogPost);
+		model.addAttribute("blogpost",blogPost);
 		
 		return "makeApost";
 	}
 	
 	@PostMapping("/SavePost")
-	public String savePost(@ModelAttribute("post") BlogPost blogPost)
+	public String savePost(@ModelAttribute("blogpost") BlogPost blogPost)
 	{
+		//Gotta update the date time column manually if the form doesnt pass a value to the model
+		final LocalDateTime ldt = LocalDateTime.now();
+		final DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+		String ldtS = sdf.format(ldt).toString();
+		
+		blogPost.setPostDateTime(ldtS);
+		
 		blogPostService.savePost(blogPost);
 		
 		return "redirect:/";

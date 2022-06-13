@@ -23,6 +23,7 @@ public class BlogPostService {
 	
 	public void savePost(BlogPost blogPost)
 	{
+		
 		blogPostRepository.save(blogPost);
 	}
 	
@@ -34,6 +35,7 @@ public class BlogPostService {
 		{
 			throw new RuntimeException("Cant find a post with that Id");
 		}
+		System.out.println(blogPost.get().getPostTitle());
 		
 		return blogPost.get();
 		
@@ -53,10 +55,6 @@ public class BlogPostService {
 	
 	public List<BlogPostsNamesAndDates> getListOfBlogEntryTitles()
 	{
-		for (BlogPostsNamesAndDates i : blogPostRepository.getListOfTitlesAndIds())
-		{
-			System.out.println(i.getPostTitle());
-		}
 	
 		return blogPostRepository.getListOfTitlesAndIds();
 		

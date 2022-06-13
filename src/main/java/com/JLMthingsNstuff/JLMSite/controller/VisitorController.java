@@ -69,7 +69,7 @@ public class VisitorController {
 		//We can use this attribute "visitor" to perform server-side rendering of the HTML with Thymeleaf.
 		model.addAttribute("visitor",vis); 
 		
-		//show update_visitor.html template !!NOT YET MADE!!
+		//show update_visitor.html template
 		return "update_visitor";
 	}
 	

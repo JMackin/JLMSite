@@ -23,7 +23,11 @@ public class BlogPost {
 	
 	public BlogPost()
 	{
-		setPostDateTime("now");
+	}
+	
+	public BlogPost(String pdt)
+	{
+		this.postDateTime = pdt;
 	}
 	
 	@Id
@@ -43,12 +47,7 @@ public class BlogPost {
 
 	public void setPostDateTime(String postDT) {
 		
-		final LocalDateTime ldt = LocalDateTime.now();
-		final DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
-		
-		String pdt = sdf.format(ldt);
-		
-		this.postDateTime = pdt;
+		this.postDateTime = postDT;
 	}
 
 	public String getPostTitle() {

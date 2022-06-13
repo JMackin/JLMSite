@@ -4,23 +4,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Visitor Management System</title>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<!-- Compiled and minified JavaScript -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<body style="max-width: 960px; margin: 16px auto; padding: 16px">
 
+<header th:insert="fragments/header">
+	</header>
 
-	<h3>visitor List</h3>
+<body>
+
+	<h3>Visitors List</h3>
 	<!-- The link which sends GET request to "/showNewEmployeeForm"  -->
-	<a th:href="@{/NewVisitorForm}"
-		class="waves-effect waves-light btn">Add new visitor</a>
+	<a th:href="@{/NewVisitorForm}">Add new visitor</a>
 	<div align="center" style="margin-top: 20px">
-		<table class="responsive-table striped highlight centered">
+		<table>
 			<thead>
 				<tr>
 					<th>First Name</th>
@@ -40,13 +35,11 @@
 					<td th:text="${visitor.quip}"></td>
 					<td>
 						<!-- The link which sends GET request to "/showFormForUpdate/{id}" (id is visitor.id) -->
-						<a th:href="@{/showFormForUpdate/{id}(id=${visitor.id})}"
-							class="waves-effect waves-light btn">Update</a>
+						<a th:href="@{/showFormForUpdate/{id}(id=${visitor.id})}">Update</a>
 					</td>
 					<td>
 						<!-- The link which sends GET request to "/delete/{id}" (id is visitor.id)  -->
-						<a th:href="@{/delete/{id}(id=${visitor.id})}"
-							class="waves-effect waves-light btn red litghten-2">Delete</a>
+						<a th:href="@{/delete/{id}(id=${visitor.id})}">Delete</a>
 					</td>
 				</tr>
 				
@@ -54,4 +47,8 @@
 		</table>
 	</div>
 </body>
+
+<footer th:insert="fragments/footer">
+</footer>
+
 </html>

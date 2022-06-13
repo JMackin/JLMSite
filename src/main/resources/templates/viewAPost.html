@@ -7,15 +7,20 @@
 <header th:insert="fragments/header">
 	</header>
 	
-
 <body>
 
 	<h3 th:text="${blogpost.postTitle}"></h3>
 	<p th:text="${blogpost.postDateTime}"></p>
 	<br>
-	<br>
 	<p th:text="${blogpost.postContent}">
 	</p>
+<br>
 
+<a th:href="@{/blogPosts}"
+		class="blue-text">Back</a>
 </body>
+
+<footer th:insert="fragments/footer">
+</footer>
+
 </html>
