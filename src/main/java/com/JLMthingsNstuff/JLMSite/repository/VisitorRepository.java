@@ -8,5 +8,6 @@ import com.JLMthingsNstuff.JLMSite.model.Visitor;
 public interface VisitorRepository extends JpaRepository<Visitor, Long> {
 	// This will be AUTO IMPLEMENTED by Spring into a Bean
 	
+	
 
 }
