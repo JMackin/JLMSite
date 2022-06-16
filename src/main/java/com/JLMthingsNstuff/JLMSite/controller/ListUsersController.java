@@ -18,14 +18,14 @@ public class ListUsersController {
 	ListUsersService listUsersService;
 	
 
-	@GetMapping("/users")
+	@GetMapping("/listOfUsers")
 	public String listUsers(Model model) {
 		
 	    List<User> listOfUsers = listUsersService.listUsers();
 	    
 	    model.addAttribute("listOfUsers", listOfUsers);
 	     
-	    return "users";
+	    return "listOfUsers";
 	}
 	
 }

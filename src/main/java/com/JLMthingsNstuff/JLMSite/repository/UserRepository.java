@@ -8,9 +8,8 @@ import com.JLMthingsNstuff.JLMSite.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	
 	//This dumb query wont work..
-	@Query(value="SELECT email FROM users WHERE email = ?1;",nativeQuery=true)
-	User findByEmail(String username);
+	@Query(value="SELECT * FROM users WHERE email = ?1", nativeQuery=true)
+	public User findByEmail(String email);
 	
 }
