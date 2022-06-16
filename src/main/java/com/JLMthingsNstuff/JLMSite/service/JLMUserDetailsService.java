@@ -15,8 +15,8 @@ public class JLMUserDetailsService implements UserDetailsService {
     private UserRepository userRepo;
      
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepo.findByEmail(username);
+    public UserDetails loadUserByUsername(String uname) throws UsernameNotFoundException {
+        User user = userRepo.findByUname(uname);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }

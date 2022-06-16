@@ -28,7 +28,7 @@ public class JLMUserDetails implements UserDetails {
  
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return user.getUname();
     }
  
     @Override

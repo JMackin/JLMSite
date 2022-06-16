@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.JLMthingsNstuff.JLMSite.model.User;
+import com.JLMthingsNstuff.JLMSite.model.User.Roles;
 import com.JLMthingsNstuff.JLMSite.repository.UserRepository;
 
 @Service
@@ -19,6 +20,9 @@ public class UserRegistrationService {
 	    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	    String encodedPassword = passwordEncoder.encode(user.getPassword());
 	    user.setPassword(encodedPassword);
+	    
+	    user.setRole(Roles.valueOf("REGUSER"));
+	    user.setEnabled(true);
 	     
 	   userRepository.save(user);
 	     
