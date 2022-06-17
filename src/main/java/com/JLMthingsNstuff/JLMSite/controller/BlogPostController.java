@@ -8,6 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +24,7 @@ public class BlogPostController {
 	
 	@Autowired
 	BlogPostService blogPostService;
-
+	
 	@GetMapping("/MakeAPost")
 	public String showMakePost(Model model)
 	{
@@ -42,7 +44,12 @@ public class BlogPostController {
 		final DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
 		String ldtS = sdf.format(ldt).toString();
 		
+		//Should maybe be decoupled... as per IoC principles
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String author = ((UserDetails)principal).getUsername();
+		
 		blogPost.setPostDateTime(ldtS);
+		blogPost.setPostAuthor(author);
 		
 		blogPostService.savePost(blogPost);
 		

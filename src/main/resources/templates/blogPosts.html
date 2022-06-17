@@ -13,7 +13,8 @@
 		<thead>
 			<tr>
 				<th align="left">Post Title</th>
-				<th style="width: 30%; ">Made on..</th>
+				<th style="width: 20%; ">Post Date</th>
+				<th style="width: 10%;">Author</th>
 			</tr>
 		</thead>
 		
@@ -21,6 +22,7 @@
 			<tr th:each="bp: ${blogtitlelist}">
 				<td> <a th:href="@{/viewAPost/{id}(id=${bp.id})}" th:text="${bp.postTitle}"></a></td>
 				<td> <span th:text="${bp.postDateTime}"></span></td>
+				<td> <span th:text="${bp.postAuthor}"> </span></td>
 			
 			</tr>
 		</tbody>

@@ -57,7 +57,8 @@ public class WebSecurityConfig{
     	
     	http
     		.authorizeHttpRequests((authz) -> authz
-    				.antMatchers("/users").authenticated()
+    				.antMatchers("/listOfUsers").authenticated()
+    				.antMatchers("/MakeAPost").authenticated()
     				.anyRequest().permitAll()
     				)
     		.authenticationManager(authenticationManager)
