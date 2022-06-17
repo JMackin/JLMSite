@@ -73,31 +73,8 @@ public class WebSecurityConfig{
     	
     	return http.build();
     	
+    	
     }
 
- 
-    /*
-    
- 
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
-    }
- 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-            .antMatchers("/users").authenticated()
-            .anyRequest().permitAll()
-            .and()
-            .formLogin()
-                .usernameParameter("email")
-                .defaultSuccessUrl("/listOfUsers")
-                .permitAll()
-            .and()
-            .logout().logoutSuccessUrl("/").permitAll();
-    }
-     */
      
 }
