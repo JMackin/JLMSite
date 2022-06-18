@@ -8,14 +8,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.JLMthingsNstuff.JLMSite.model.BlogPost;
+import com.JLMthingsNstuff.JLMSite.model.postEditableAttribute;
 import com.JLMthingsNstuff.JLMSite.repository.BlogPostsNamesAndDates;
 import com.JLMthingsNstuff.JLMSite.service.BlogPostService;
 
@@ -29,9 +28,9 @@ public class BlogPostController {
 	public String showMakePost(Model model)
 	{
 		
-		BlogPost blogPost = new BlogPost();
+		BlogPost bp = new BlogPost();
 		
-		model.addAttribute("blogpost",blogPost);
+		model.addAttribute("blogpost",bp);
 		
 		return "makeApost";
 	}
@@ -39,18 +38,7 @@ public class BlogPostController {
 	@PostMapping("/SavePost")
 	public String savePost(@ModelAttribute("blogpost") BlogPost blogPost)
 	{
-		//Gotta update the date time column manually if the form doesnt pass a value to the model
-		final LocalDateTime ldt = LocalDateTime.now();
-		final DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
-		String ldtS = sdf.format(ldt).toString();
-		
-		//Should maybe be decoupled... as per IoC principles
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String author = ((UserDetails)principal).getUsername();
-		
-		blogPost.setPostDateTime(ldtS);
-		blogPost.setPostAuthor(author);
-		
+
 		blogPostService.savePost(blogPost);
 		
 		return "redirect:/";
@@ -62,6 +50,7 @@ public class BlogPostController {
 		
 		BlogPost bp = blogPostService.getPostById(id);
 		
+		model.addAttribute("editable",(new postEditableAttribute(blogPostService.isPostEditable(bp))));
 		model.addAttribute("blogpost", bp);
 		
 		return "viewAPost";
@@ -79,17 +68,25 @@ public class BlogPostController {
 	}
 	
 	
-	/*
+	
 	@GetMapping ("editAPost/{id}")
 	public String showPostEditForm(@PathVariable Long id, Model model)
 	{
-		Post post = postService.getPostById(id);
+		BlogPost bp = blogPostService.getPostById(id);
 		
-		model.addAttribute("post",post);
+		if (blogPostService.isPostEditable(bp))
+		{
+			model.addAttribute("blogpost",bp);
+			return "edit_blogPost";
+		}else
+		{
+			return "redirect:/";
+		}
 		
-		return "edit_post";
+		
 	}
 	
+	/*
 	@GetMapping("/delete/{id}")
 	public String deletePostById(@PathVariable Long id, Model model)
 	{

@@ -17,6 +17,7 @@ public class BlogPost {
 	private String postContent;
 	private String postAuthor;
 	
+	
 	public BlogPost()
 	{
 	}
