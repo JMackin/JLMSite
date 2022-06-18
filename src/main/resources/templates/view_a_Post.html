@@ -17,8 +17,8 @@
 	</p>
 <br>
 
-<a th:href="@{/blogPosts}"
-		class="blue-text">Back</a>
+<a th:href="@{/blogPosts}">Back</a>
+<a th:if="${editable.postEditable}" th:href="@{/editAPost/{id}(id=${blogpost.id})}">|| Edit Post</a>
 </body>
 
 <footer th:insert="fragments/footer">

@@ -1,10 +1,8 @@
 package com.JLMthingsNstuff.JLMSite.repository;
 
-public interface BlogPostsNamesAndDates {
-	
+public interface BlogPostTitlesAndDates {
+
 	Long getId();
 	String getPostTitle();
 	String getPostDateTime();
-	String getPostAuthor();
-	
 }

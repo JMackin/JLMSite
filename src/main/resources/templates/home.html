@@ -6,7 +6,6 @@
 <title>The JLM Site</title>
 </head>
 
-
 	<!-- Inserts Header html with banner from fragments-->
 	<header th:insert="fragments/header">
 	</header>
@@ -19,7 +18,9 @@
 		<b>||</b>
 		<a th:href="@{/MakeAPost}"> Make a Blog Post </a>
 		<b>||</b>
-		<a th:href="@{/blogPosts}">View Entries </a>
+		<a th:href="@{/blogPosts}"> View all Entries </a>
+		<b>||</b>
+		<a th:href="@{/myBlogPosts}"> View your Entries</a>
 	</nav>
 	
 	

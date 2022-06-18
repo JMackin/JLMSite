@@ -22,11 +22,6 @@ public class BlogPost {
 	{
 	}
 	
-	public BlogPost(String pdt)
-	{
-		this.postDateTime = pdt;
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getId() {

@@ -19,7 +19,9 @@ import com.JLMthingsNstuff.JLMSite.model.BlogPost;
 import com.JLMthingsNstuff.JLMSite.model.JLMUserDetails;
 //import com.JLMthingsNstuff.JLMSite.model.User;
 import com.JLMthingsNstuff.JLMSite.repository.BlogPostRepository;
-import com.JLMthingsNstuff.JLMSite.repository.BlogPostsNamesAndDates;
+import com.JLMthingsNstuff.JLMSite.repository.BlogPostTitlesAndDates;
+import com.JLMthingsNstuff.JLMSite.repository.BlogPostTitlesDatesAuthors;
+
 
 @Service
 public class BlogPostService {
@@ -44,6 +46,7 @@ public class BlogPostService {
 		String author = ((JLMUserDetails)principal).getUsername();
 		
 		blogPost.setPostDateTime(ldtS);
+		
 		blogPost.setPostAuthor(author);
 		
 		blogPostRepository.save(blogPost);
@@ -75,10 +78,20 @@ public class BlogPostService {
 		return "Post titled " + blogPost.get().getPostTitle() + " from " + blogPost.get().getPostDateTime();
 	}
 	
-	public List<BlogPostsNamesAndDates> getListOfBlogEntryTitles()
+	public List<BlogPostTitlesDatesAuthors> getListOfBlogEntryTitles()
 	{
 	
 		return blogPostRepository.getListOfTitlesAndIds();
+		
+	}
+	
+	public List<BlogPostTitlesDatesAuthors> getJustMyBlogPosts()
+	{
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String uname = ((JLMUserDetails)principal).getUsername();
+		
+		return blogPostRepository.getListOfBlogPostsByUsername(uname);
 		
 	}
 	
@@ -101,7 +114,7 @@ public class BlogPostService {
 						.anyMatch(a -> a.getAuthority().equals("JLMMASTER")));
 		}else
 		{
-			isEditable =false;
+			isEditable = false;
 		}
 		
 		
@@ -113,5 +126,6 @@ public class BlogPostService {
 		return isEditable;
 		
 	}
+	
 	
 }

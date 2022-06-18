@@ -30,7 +30,7 @@ public class VisitorController {
 		model.addAttribute("visitorList",visitorService.getAllVisitors());
 		
 		//show the visitorlist.html template
-		return "visitorlist";
+		return "list_visitors";
 	}
 	
 	// show new visitor form

@@ -25,7 +25,7 @@ public class ListUsersController {
 	    
 	    model.addAttribute("listOfUsers", listOfUsers);
 	     
-	    return "listOfUsers";
+	    return "list_Users";
 	}
 	
 }

@@ -3,8 +3,6 @@ package com.JLMthingsNstuff.JLMSite.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.JLMthingsNstuff.JLMSite.model.BlogPost;
 import com.JLMthingsNstuff.JLMSite.model.postEditableAttribute;
-import com.JLMthingsNstuff.JLMSite.repository.BlogPostsNamesAndDates;
+import com.JLMthingsNstuff.JLMSite.repository.BlogPostTitlesDatesAuthors;
 import com.JLMthingsNstuff.JLMSite.service.BlogPostService;
 
 @Controller
@@ -32,7 +30,7 @@ public class BlogPostController {
 		
 		model.addAttribute("blogpost",bp);
 		
-		return "makeApost";
+		return "make_a_post";
 	}
 	
 	@PostMapping("/SavePost")
@@ -53,23 +51,23 @@ public class BlogPostController {
 		model.addAttribute("editable",(new postEditableAttribute(blogPostService.isPostEditable(bp))));
 		model.addAttribute("blogpost", bp);
 		
-		return "viewAPost";
+		return "view_a_Post";
 	}
 	
 	@GetMapping("/blogPosts")
 	public String listBlogPosts(Model model)
 	{
 
-		List<BlogPostsNamesAndDates> bpl = blogPostService.getListOfBlogEntryTitles();
+		List<BlogPostTitlesDatesAuthors> bpl = blogPostService.getListOfBlogEntryTitles();
 		
 		model.addAttribute("blogtitlelist",bpl);
 		
-		return "blogPosts";
+		return "blog_posts";
 	}
 	
 	
 	
-	@GetMapping ("editAPost/{id}")
+	@GetMapping("/editAPost/{id}")
 	public String showPostEditForm(@PathVariable Long id, Model model)
 	{
 		BlogPost bp = blogPostService.getPostById(id);
@@ -80,11 +78,21 @@ public class BlogPostController {
 			return "edit_blogPost";
 		}else
 		{
-			return "redirect:/";
+			return "redirect:/login";
 		}
-		
-		
 	}
+	
+	@GetMapping("/myBlogPosts")
+	public String showMyDashBoard(Model model)
+	{
+		
+		List<BlogPostTitlesDatesAuthors> myPosts = blogPostService.getJustMyBlogPosts();
+		
+		model.addAttribute("postList",myPosts);
+		
+		return "my_blog_posts";
+	}
+	
 	
 	/*
 	@GetMapping("/delete/{id}")
