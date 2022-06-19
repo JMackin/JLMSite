@@ -5,17 +5,21 @@ import org.springframework.ui.Model;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.JLMthingsNstuff.JLMSite.model.BlogPost;
 import com.JLMthingsNstuff.JLMSite.repository.BlogPostTitlesDatesAuthors;
 import com.JLMthingsNstuff.JLMSite.service.IsEditableService;
 import com.JLMthingsNstuff.JLMSite.service.BlogPostService;
 
+@SessionAttributes("postId")
 @Controller
 public class BlogPostController {
 	
@@ -23,6 +27,9 @@ public class BlogPostController {
 	BlogPostService blogPostService;
 	@Autowired
 	IsEditableService isEditableService;
+	
+	
+	
 	
 	@GetMapping("/MakeAPost")
 	public String showMakePost(Model model)
@@ -51,8 +58,9 @@ public class BlogPostController {
 		BlogPost bp = blogPostService.getPostById(id);
 		boolean isEditable = isEditableService.isPostEditable(bp);
 		
-		model.addAttribute("editable",isEditable);
 		model.addAttribute("blogpost", bp);
+		model.addAttribute("editable",isEditable);
+		
 		
 		return "view_a_Post";
 	}
@@ -75,8 +83,10 @@ public class BlogPostController {
 	{
 		BlogPost bp = blogPostService.getPostById(id);
 		
+		
 		if (isEditableService.isPostEditable(bp))
 		{
+			
 			model.addAttribute("blogpost",bp);
 			return "edit_blogPost";
 		}else
@@ -85,13 +95,13 @@ public class BlogPostController {
 		}
 	}
 	
-	@PostMapping("/SubmitChanges")
-	public String submitPostChanges(@ModelAttribute("blogpost") BlogPost bp)
+	@PostMapping("/SubmitChanges/{id}")
+	public String submitPostChanges(@PathVariable Long id, @ModelAttribute("blogpost") BlogPost bp)
 	{
-		Long postId = bp.getId();
-		blogPostService.editBlogPost(bp);
 		
-		return "redirect:/ViewAPost/"+(postId.toString());
+		blogPostService.editBlogPost(bp,id);
+		
+		return "redirect:/ViewAPost/"+(id.toString());
 	}
 	
 	@GetMapping("/MyBlogPosts")

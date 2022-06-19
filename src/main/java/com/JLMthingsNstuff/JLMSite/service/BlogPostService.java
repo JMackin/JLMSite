@@ -95,14 +95,18 @@ public class BlogPostService {
 		
 	}
 	
-	public Long editBlogPost(BlogPost editedBlogPost)
+	public void editBlogPost(BlogPost blogPost, Long id)
 	{
-		Long postId = editedBlogPost.getId();
-		String newContent = editedBlogPost.getPostContent();
+		//This is where the edit post flow breaks as of now...
 		
-		blogPostRepository.updatePostContent(newContent, postId);
+		System.out.println(blogPost.getPostTitle());
+		System.out.println(blogPost.getId());
+		System.out.println("-------------");
 		
-		return postId;
+		String newContent = blogPost.getPostContent();
+		
+		blogPostRepository.updatePostContent(newContent,id);
+		
 	}
 	
 	
