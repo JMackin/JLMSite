@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.JLMthingsNstuff.JLMSite.model.BlogPost;
-import com.JLMthingsNstuff.JLMSite.model.postEditableAttribute;
 import com.JLMthingsNstuff.JLMSite.repository.BlogPostTitlesDatesAuthors;
+import com.JLMthingsNstuff.JLMSite.service.IsEditableService;
 import com.JLMthingsNstuff.JLMSite.service.BlogPostService;
 
 @Controller
@@ -21,6 +21,8 @@ public class BlogPostController {
 	
 	@Autowired
 	BlogPostService blogPostService;
+	@Autowired
+	IsEditableService isEditableService;
 	
 	@GetMapping("/MakeAPost")
 	public String showMakePost(Model model)
@@ -47,8 +49,9 @@ public class BlogPostController {
 	{
 		
 		BlogPost bp = blogPostService.getPostById(id);
+		boolean isEditable = isEditableService.isPostEditable(bp);
 		
-		model.addAttribute("editable",(new postEditableAttribute(blogPostService.isPostEditable(bp))));
+		model.addAttribute("editable",isEditable);
 		model.addAttribute("blogpost", bp);
 		
 		return "view_a_Post";
@@ -72,7 +75,7 @@ public class BlogPostController {
 	{
 		BlogPost bp = blogPostService.getPostById(id);
 		
-		if (blogPostService.isPostEditable(bp))
+		if (isEditableService.isPostEditable(bp))
 		{
 			model.addAttribute("blogpost",bp);
 			return "edit_blogPost";
