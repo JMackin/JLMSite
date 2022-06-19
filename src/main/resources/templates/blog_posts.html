@@ -20,7 +20,7 @@
 		
 		<tbody>
 			<tr th:each="bp: ${blogtitlelist}">
-				<td> <a th:href="@{/viewAPost/{id}(id=${bp.id})}" th:text="${bp.postTitle}"></a></td>
+				<td> <a th:href="@{/ViewAPost/{id}(id=${bp.id})}" th:text="${bp.postTitle}"></a></td>
 				<td> <span th:text="${bp.postDateTime}"></span></td>
 				<td> <span th:text="${bp.uname}"> </span></td>
 			

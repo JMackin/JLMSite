@@ -59,16 +59,15 @@ public class WebSecurityConfig{
     	
     	http
     		.authorizeHttpRequests((authz) -> authz
-    				.antMatchers("/myPosts").authenticated()
     				.antMatchers("/MakeAPost").authenticated()
-    				.antMatchers("/myBlogPosts").authenticated()
+    				.antMatchers("/MyBlogPosts").authenticated()
     				.anyRequest().permitAll()
     				)
     		.authenticationManager(authenticationManager)
     		.formLogin((flogin) -> flogin
     				.loginPage("/login") //<== using default login page for now
     				.usernameParameter("uname")
-    				.defaultSuccessUrl("/myBlogPosts")
+    				.defaultSuccessUrl("/MyBlogPosts")
     				.permitAll()
     				)
     		.logout((lo) -> lo

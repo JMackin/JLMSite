@@ -44,7 +44,7 @@ public class BlogPostController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("viewAPost/{id}")
+	@GetMapping("ViewAPost/{id}")
 	public String viewPostById(@PathVariable Long id, Model model)
 	{
 		
@@ -57,7 +57,7 @@ public class BlogPostController {
 		return "view_a_Post";
 	}
 	
-	@GetMapping("/blogPosts")
+	@GetMapping("/BlogPosts")
 	public String listBlogPosts(Model model)
 	{
 
@@ -70,7 +70,7 @@ public class BlogPostController {
 	
 	
 	
-	@GetMapping("/editAPost/{id}")
+	@GetMapping("/EditAPost/{id}")
 	public String showPostEditForm(@PathVariable Long id, Model model)
 	{
 		BlogPost bp = blogPostService.getPostById(id);
@@ -85,7 +85,16 @@ public class BlogPostController {
 		}
 	}
 	
-	@GetMapping("/myBlogPosts")
+	@PostMapping("/SubmitChanges")
+	public String submitPostChanges(@ModelAttribute("blogpost") BlogPost bp)
+	{
+		Long postId = bp.getId();
+		blogPostService.editBlogPost(bp);
+		
+		return "redirect:/ViewAPost/"+(postId.toString());
+	}
+	
+	@GetMapping("/MyBlogPosts")
 	public String showMyDashBoard(Model model)
 	{
 		

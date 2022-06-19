@@ -95,5 +95,15 @@ public class BlogPostService {
 		
 	}
 	
+	public Long editBlogPost(BlogPost editedBlogPost)
+	{
+		Long postId = editedBlogPost.getId();
+		String newContent = editedBlogPost.getPostContent();
+		
+		blogPostRepository.updatePostContent(newContent, postId);
+		
+		return postId;
+	}
+	
 	
 }
