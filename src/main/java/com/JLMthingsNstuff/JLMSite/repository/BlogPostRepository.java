@@ -22,8 +22,8 @@ public interface BlogPostRepository extends JpaRepository<BlogPost,Long>{
 
 	@Transactional
 	@Modifying
-	@Query(value="UPDATE blogposts SET post_content = ?1 WHERE id = ?2", nativeQuery=true)
-	void updatePostContent(String postContent, Long id);
+	@Query(value="UPDATE blogposts SET post_content = ?1, post_title = ?2 WHERE id = ?3", nativeQuery=true)
+	void updatePostContent(String postContent,String postTitle, Long id);
 
 
 }

@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <link th:href="@{/style/main.css}" rel="stylesheet" />
 <title>The JLM Site</title>
 </head>
 
 	<!-- Inserts Header html with banner from fragments-->
-	<header th:insert="fragments/header">
-	</header>
+	<div th:insert="fragments/header"></div>
+	<div th:insert="fragments/navbar"></div>
 	
 	<body>
-	<br></br>
-	
-	<nav>
-		<a th:href="@{/ListOfVisitors}"> List of Visitors </a>
-		<b>||</b>
-		<a th:href="@{/MakeAPost}"> Make a Blog Post </a>
-		<b>||</b>
-		<a th:href="@{/BlogPosts}"> View all Entries </a>
-		<b>||</b>
-		<a th:href="@{/MyBlogPosts}"> View your Entries</a>
-	</nav>
-	
-	
+	<br></br>	
+		Howdy
+		<div th:text="${#authentication.name}"></div>
 	<br></br>
 	
 	<a th:href="@{/login}"> Login</a> || <a th:href="@{/register}"> Sign Up</a>

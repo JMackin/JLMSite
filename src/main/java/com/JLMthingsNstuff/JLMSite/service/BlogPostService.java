@@ -60,7 +60,6 @@ public class BlogPostService {
 		{
 			throw new RuntimeException("Cant find a post with that Id");
 		}
-		System.out.println(blogPost.get().getPostTitle());
 		
 		return blogPost.get();
 		
@@ -97,15 +96,11 @@ public class BlogPostService {
 	
 	public void editBlogPost(BlogPost blogPost, Long id)
 	{
-		//This is where the edit post flow breaks as of now...
-		
-		System.out.println(blogPost.getPostTitle());
-		System.out.println(blogPost.getId());
-		System.out.println("-------------");
-		
+
+		String newTitle = blogPost.getPostTitle();
 		String newContent = blogPost.getPostContent();
 		
-		blogPostRepository.updatePostContent(newContent,id);
+		blogPostRepository.updatePostContent(newContent,newTitle,id);
 		
 	}
 	

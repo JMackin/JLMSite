@@ -4,17 +4,19 @@
 <meta charset="UTF-8">
 <link th:href="@{/style/viewblogpost.css}" rel="stylesheet" />
 
-<header th:insert="fragments/header">
-	</header>
+<div th:insert="fragments/header"></div>
+<div th:insert="fragments/navbar"></div>
 	
 <body>
 
 	<h3 th:text="${blogpost.postTitle}"></h3>
 	<p th:text="${blogpost.uname}"></p>
 	<p th:text="${blogpost.postDateTime}"></p>
-	<br>
-	<p th:text="${blogpost.postContent}">
-	</p>
+	
+	<div class="content_box">
+	<p id="content" th:text="${blogpost.postContent}">
+	</p></div>
+	
 <br>
 
 <a th:href="@{/BlogPosts}">Back</a>

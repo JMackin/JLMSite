@@ -19,7 +19,7 @@ public class IsEditableService{
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		Object principal = auth.getPrincipal();
 		
-		
+		//TODO use .isAnonymous() function instead
 		if (!principal.toString().equals("anonymousUser"))
 		{
 			

@@ -7,9 +7,11 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet">
 
-<!-- Compiled and minified JavaScript -->
-
 </head>
+
+<div th:insert="fragments/header"></div>
+<div th:insert="fragments/navbar"></div>
+
 <body style="max-width: 960px; margin: 16px auto; padding: 16px">
 	<h3>Add New Visitor</h3>
 	<!-- The th:action="@{/saveVisitor}" expression directs the form to POST to the /SaveVisitor endpoint.

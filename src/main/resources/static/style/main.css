@@ -1,11 +1,28 @@
+@charset "UTF-8";
+
 .homebanner {
 	width: 100%;
 	margin: auto;
 }
 
 #hometitle {
+	color: black;
+	underline: false;
 	text-align: center;
 	width: 80%;
 	border: 3px solid black;
 	margin: auto;
+}
+
+nav{
+	margin: 5px;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+	
+}
+a:hover{
+	color: grey;
 }
