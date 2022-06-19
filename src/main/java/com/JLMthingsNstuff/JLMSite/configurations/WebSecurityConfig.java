@@ -44,6 +44,8 @@ public class WebSecurityConfig{
         return authProvider;
     }
     
+    
+    
     @Bean
     public SecurityFilterChain secFilterChain(HttpSecurity http) throws Exception
     {
@@ -64,7 +66,7 @@ public class WebSecurityConfig{
     				)
     		.authenticationManager(authenticationManager)
     		.formLogin((flogin) -> flogin
-    				//.loginPage("/login") <== using default login page for now
+    				.loginPage("/login") //<== using default login page for now
     				.usernameParameter("uname")
     				.defaultSuccessUrl("/myBlogPosts")
     				.permitAll()
@@ -77,6 +79,4 @@ public class WebSecurityConfig{
     	
     	
     }
-
-     
 }

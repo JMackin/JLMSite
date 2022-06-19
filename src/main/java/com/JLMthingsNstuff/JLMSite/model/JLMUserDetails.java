@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class JLMUserDetails implements UserDetails {
 	
-	//Why this ??
 	private static final long serialVersionUID = 1L;
 	
 	private User user;

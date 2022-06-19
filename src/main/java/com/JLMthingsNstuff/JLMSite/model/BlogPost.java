@@ -1,5 +1,6 @@
 package com.JLMthingsNstuff.JLMSite.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +12,21 @@ import javax.persistence.Table;
 @Table(name = "BLOGPOSTS")
 public class BlogPost {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String postDateTime;
-	private String postTitle;
+	
+	@Column(name = "uname", nullable=false, length=16)
+	private String uname;
+	
+	@Column(name = "post_content")
 	private String postContent;
-	private String postAuthor;
+	
+	@Column(name="post_date_time")
+	private String postDateTime;
+	
+	@Column(name="post_title")
+	private String postTitle;
 	
 	
 	public BlogPost()
@@ -58,12 +69,12 @@ public class BlogPost {
 		this.postContent = postContent;
 	}
 
-	public String getPostAuthor() {
-		return postAuthor;
+	public String getUname() {
+		return uname;
 	}
 
-	public void setPostAuthor(String postAuthor) {
-		this.postAuthor = postAuthor;
+	public void setUname(String uname) {
+		this.uname = uname;
 	}
 	
 

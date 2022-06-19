@@ -43,11 +43,11 @@ public class BlogPostService {
 		
 		//Should maybe be decoupled... as per IoC principles
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String author = ((JLMUserDetails)principal).getUsername();
+		String uname = ((JLMUserDetails)principal).getUsername();
 		
 		blogPost.setPostDateTime(ldtS);
 		
-		blogPost.setPostAuthor(author);
+		blogPost.setUname(uname);
 		
 		blogPostRepository.save(blogPost);
 	}

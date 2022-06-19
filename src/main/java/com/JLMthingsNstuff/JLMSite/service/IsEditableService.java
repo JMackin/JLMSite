@@ -26,7 +26,7 @@ public class IsEditableService{
 			String author = ((JLMUserDetails)principal).getUsername();
 			
 			isEditable = 
-					(blogpost.getPostAuthor().equals(author)) ? true : 
+					(blogpost.getUname().equals(author)) ? true : 
 						(auth != null && auth.getAuthorities().stream()
 						.anyMatch(a -> a.getAuthority().equals("JLMMASTER")));
 		}else
