@@ -14,7 +14,7 @@
 	<name>JLMSite</name>
 	<description>A website for John Luther Mackin</description>
 	<properties>
-		<java.version>17.0.3</java.version>
+		<java.version>17</java.version>
 	</properties>
 	
 	<dependencies>
