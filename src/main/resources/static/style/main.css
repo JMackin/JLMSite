@@ -6,8 +6,8 @@
 }
 
 #hometitle {
+	font-family: "verdanna",sans-serif;
 	color: black;
-	underline: false;
 	text-align: center;
 	width: 80%;
 	border: 3px solid black;

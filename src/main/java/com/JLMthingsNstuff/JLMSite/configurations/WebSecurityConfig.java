@@ -65,14 +65,18 @@ public class WebSecurityConfig{
     				)
     		.authenticationManager(authenticationManager)
     		.formLogin((flogin) -> flogin
-    				.loginPage("/login") //<== using default login page for now
+    				.loginPage("/login")
     				.usernameParameter("uname")
     				.defaultSuccessUrl("/MyBlogPosts")
     				.permitAll()
     				)
-    		.logout((lo) -> lo
-    		.logoutSuccessUrl("/login")
-    		.permitAll());
+    		.logout((logout) ->
+				logout.deleteCookies("remove")
+					.invalidateHttpSession(true)
+					.logoutUrl("/logout")
+					.logoutSuccessUrl("/")
+					.permitAll()
+    				);
     	
     	return http.build();
     	

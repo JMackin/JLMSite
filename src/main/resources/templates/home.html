@@ -3,20 +3,47 @@
 	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <link th:href="@{/style/main.css}" rel="stylesheet" />
-<title>The JLM Site</title>
+<link th:href="@{/style/clock.css}" rel="stylesheet" />
+	<title>The JLM Site</title>
+	<link rel="icon" type="image/x-icon" th:href="@{/images/JLMSigil.svg}">
 </head>
 
 	<!-- Inserts Header html with banner from fragments-->
 	<div th:insert="fragments/header"></div>
 	<div th:insert="fragments/navbar"></div>
 	
-	<body>
-	<br></br>	
-		Howdy
-		<div th:text="${#authentication.name}"></div>
-	<br></br>
+	<script>
+	setInterval(() => {
+	    d = new Date(); //object of date()
+	    hr = d.getHours();
+	    min = d.getMinutes();
+	    sec = d.getSeconds();
+	    hr_rotation = 30 * hr + min / 2; //converting current time
+	    min_rotation = 6 * min;
+	    sec_rotation = 6 * sec;
+	  
+	    hour.style.transform = `rotate(${hr_rotation}deg)`;
+	    minute.style.transform = `rotate(${min_rotation}deg)`;
+	    second.style.transform = `rotate(${sec_rotation}deg)`;
+	}, 1000);
+	</script>
 	
-	<a th:href="@{/login}"> Login</a> || <a th:href="@{/register}"> Sign Up</a>
+	<body>
+		<div id="clockContainer">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>	
+	
+
+	
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Log Out"/>
+		</form>
+	</div>
+	<div sec:authorize="!isAuthenticated()" ><a th:href="@{/login}"> Login</a> || <a th:href="@{/register}"> Sign Up</a> </div>
+	
 	
 	</body>
 </html>

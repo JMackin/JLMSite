@@ -13,12 +13,11 @@ xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 		<b>||</b>
 		<a th:href="@{/BlogPosts}"> View all Entries </a>
 		<b>||</b>
-		
 		<span sec:authorize="isAuthenticated()">
 		<a th:href="@{/MyBlogPosts}"> View your Entries</a>
 		<b>||</b>
 		</span>
-		
 	</nav>
+	
 
 </html>
