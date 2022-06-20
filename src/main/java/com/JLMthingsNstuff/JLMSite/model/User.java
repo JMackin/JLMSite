@@ -37,7 +37,6 @@ public class User {
     @Column(name= "enabled")
 	private boolean enabled;
     
-    @Enumerated(EnumType.STRING)
     @Column(name="role")
     private Roles role;
     
