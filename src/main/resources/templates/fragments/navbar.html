@@ -2,20 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-<link th:href="@{/style/main.css}" rel="stylesheet" />
+<link th:href="@{/style/navBar.css}" rel="stylesheet" />
 <meta charset="UTF-8">
 
-	<nav th:fragment="navbar" id="navbar">
+	<nav th:fragment="nav_bar" class="navbar">
 		
-		<b>||</b>
-		<a th:href="@{/MakeAPost}"> Make a Blog Post </a>
-		<b>||</b>
-		<a th:href="@{/BlogPosts}"> View all Entries </a>
-		<b>||</b>
-		<span sec:authorize="isAuthenticated()">
+		<span id="nav1"><a th:href="@{/MakeAPost}"> Make a Blog Post </a></span>
+		
+		<span id ="nav2"><a th:href="@{/BlogPosts}"> View all Entries </a></span>
+		
+		<span id="nav3" sec:authorize="isAuthenticated()">
 		<a th:href="@{/MyBlogPosts}"> View your Entries</a>
-		<b>||</b>
 		</span>
+		
 	</nav>
 	
 

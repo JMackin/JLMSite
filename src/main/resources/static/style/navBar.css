@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.navbar {
+	display: flex;
+	justify-content: flex-end;
+	margin: 1% 1%;
+	font-size: 0.95em;
+	column-gap: 3px;
+	flex-wrap: nowrap;
+	
+}
+
+#nav1{
+	padding-left: 3px;
+	padding-right: 3px;
+	margin: 0px 2.5px;
+}
+
+#nav2{
+	padding-left: 3px;
+	padding-right: 3px;
+	margin: 0px 2.5px;
+}
+
+#nav3{
+	padding-left: 3px;
+	padding-right: 3px;
+	margin: 0px 2.5px;
+}
