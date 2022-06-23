@@ -1,21 +1,48 @@
 @charset "UTF-8";
 
-.homebanner {
-	width: 100%;
-	margin: auto;
+.container {
+	display: flex;
 }
 
-#hometitle {
+.banner_container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+	margin: auto;
+	align-content: center;
+}
+
+#home_link {
+	flex: 1 1 0;
+	align-self: center;
+	text-align: center;
+	border: 3px solid black;
+	padding: 0.2%;
+}
+#home_title {
+	font-size:4vw;
 	font-family: "verdanna",sans-serif;
 	color: black;
 	text-align: center;
-	width: 80%;
-	border: 3px solid black;
-	margin: auto;
+	width: 75%;
+	align-self: center;
+	
+}
+#banner_left{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+#banner_right{
+	padding-left: 10%;
+	padding-right: 10%;
 }
 
 nav{
+	display: flex;
 	margin: 5px;
+	margin: auto;
 }
 
 a{
@@ -24,5 +51,5 @@ a{
 	
 }
 a:hover{
-	color: grey;
+	color: #91ae84;
 }

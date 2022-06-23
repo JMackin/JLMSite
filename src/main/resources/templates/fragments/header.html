@@ -5,11 +5,19 @@
 <meta charset="UTF-8">
 </head>
 
-	<header class="homeBanner" th:fragment="header">
-		<a th:href="@{/}" >
-		<h1 id = "hometitle">It's the JLM Site !</h1>
-		</a>
+	<header th:fragment="header">
+	
+	<div class="banner_container" id="homebanner" >
+		<div id="banner_left"></div>
+		
+		<div id="home_link">
+			<a th:href="@{/}" id="home_title">It's the JLM Site !</a>
+		</div>
+		
+		<div id="banner_right"></div>
+	</div>
 		
 	</header>
+
 
 </html>
