@@ -1,12 +1,1 @@
 @charset "UTF-8";
-
-#clockContainer {
-    position: relative;
-    margin: auto;
-    height: 40vw;
-    /*to make the height and width responsive*/
-    width: 40vw;
-    background: url(images/Clock.png) no-repeat;
-    /*setting our background image*/
-    background-size: 100%;
-}

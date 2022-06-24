@@ -2,26 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <link th:href="@{/style/main.css}" rel="stylesheet" />
+<link th:href="@{/style/banner.css}" rel="stylesheet" />
 <meta charset="UTF-8">
 </head>
 
 	<header th:fragment="header">
+	</header>
 	
-	<div class="banner_container" id="homebanner" >
+	
+	<div th:fragment="header" class="banner_container" id="homebanner" >
 		<div id="banner_left"></div>
 		
-		<div id="home_link">
-			<a th:href="@{/}" id="home_title">It's the JLM Site !</a>
+		<div id="home_banner">
+			<a th:href="@{/}">
+			<img id="banner_img" alt="JLM Site" src="/images/ItsTheJLMSite.png">
+			</a>
 		</div>
 		
 		<div id="banner_right"></div>
 	</div>
 		
-	</header>
-
 
 </html>
-
-<!-- 
-	TODO: Shrink icons sizes
- -->

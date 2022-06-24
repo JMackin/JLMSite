@@ -3,7 +3,7 @@
 .navbar {
 	display: flex;
 	justify-content: flex-end;
-	margin: 1% 1%;
+	margin: 2% 1%;
 	font-size: 0.95em;
 	column-gap: 3px;
 	flex-wrap: nowrap;
