@@ -6,14 +6,28 @@ xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <meta charset="UTF-8">
 
 	<nav th:fragment="nav_bar" class="navbar">
+	
+		<span id="logohome"><a th:href="@{/}">
+			<img src="/images/JLMSigil_Icon.svg" width="60" height="60"/>
+		</a></span>
 		
-		<span id="nav1"><a th:href="@{/MakeAPost}"> Make a Blog Post </a></span>
+		<span id="navbar_empty_space"></span>
 		
-		<span id ="nav2"><a th:href="@{/BlogPosts}"> View all Entries </a></span>
+		<ul id="navlinks">
+			<li><a th:href="@{/MakeAPost}"> Post </a></li>
 		
-		<span id="nav3" sec:authorize="isAuthenticated()">
-		<a th:href="@{/MyBlogPosts}"> View your Entries</a>
-		</span>
+			<li><a th:href="@{/BlogPosts}"> Entries </a></li>
+		
+			<li sec:authorize="isAuthenticated()">
+			<a th:href="@{/MyBlogPosts}"> DashBoard</a>
+			</li>
+			
+			<li sec:authorize="!isAuthenticated()">
+			<a th:href="@{/login}">Login</a>
+			</li>
+			
+			
+		</ul>
 		
 	</nav>
 	

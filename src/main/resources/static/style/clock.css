@@ -9,6 +9,7 @@
 	background: url("/images/Clock.png") no-repeat;
 	/*setting our background image*/
 	background-size: 100%;
+	margin-top: 0;
 }
 
 #hour,

@@ -3,12 +3,27 @@
 	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <link th:href="@{/style/clock.css}" rel="stylesheet" />
+
+<link th:href="@{/style/banner.css}" rel="stylesheet" />
 	<title>The JLM Site</title>
 </head>
 
 	<!-- Inserts Header html with banner from fragments-->
 	<div th:insert="fragments/header"></div>
-	<div th:insert="fragments/navbar"></div>
+	
+		
+	<div th:fragment="banner" class="banner_container">
+		<div id="banner_left"></div>
+		
+		<div id="home_banner">
+			<a th:href="@{/}">
+			<img id="banner_img" alt="JLM Site" src="/images/ItsTheJLMSite.png">
+			</a>
+		</div>
+		
+		<div id="banner_right"></div>
+	</div>
+	
 	
 	<script>
 	setInterval(() => {
@@ -34,14 +49,6 @@
         <div id="second"></div>
     </div>	
 	
-
-	
-	<div sec:authorize="isAuthenticated()">
-		<form th:action="@{/logout}" method="post">
-		<input type="submit" value="Log Out"/>
-		</form>
-	</div>
-	<div sec:authorize="!isAuthenticated()" ><a th:href="@{/login}"> Login</a> || <a th:href="@{/register}"> Sign Up</a> </div>
 	
 	
 	</body>

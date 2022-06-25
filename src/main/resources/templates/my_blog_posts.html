@@ -5,7 +5,6 @@
 <link rel="stylesheet" th:href="@{/style/makeAPost.css}">
 
 <div th:insert="fragments/header"></div>
-<div th:insert="fragments/navbar"></div>
 	
 <body>
 <h2>Dashboard:</h2>
@@ -31,7 +30,12 @@
 		
 	</table>
 	</div>
-
+	<hr>
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Log Out"/>
+		</form>
+	</div>
 
 </body>
 
