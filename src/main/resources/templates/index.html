@@ -3,7 +3,6 @@
 	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <link th:href="@{/style/clock.css}" rel="stylesheet" />
-
 <link th:href="@{/style/banner.css}" rel="stylesheet" />
 	<title>The JLM Site</title>
 </head>
@@ -23,26 +22,11 @@
 		
 		<div id="banner_right"></div>
 	</div>
-	
-	
-	<script>
-	setInterval(() => {
-	    d = new Date(); //object of date()
-	    hr = d.getHours();
-	    min = d.getMinutes();
-	    sec = d.getSeconds();
-	    hr_rotation = 30 * hr + min / 2; //converting current time
-	    min_rotation = 6 * min;
-	    sec_rotation = 6 * sec;
-	  
-	    hour.style.transform = `rotate(${hr_rotation}deg)`;
-	    minute.style.transform = `rotate(${min_rotation}deg)`;
-	    second.style.transform = `rotate(${sec_rotation}deg)`;
-	}, 1000);
-	</script>
-	
+
+	 
 	<body>
 	
+	<script type="text/javascript" src="/scripts/clock.js"></script>
 	<div id="clockContainer">
         <div id="hour"></div>
         <div id="minute"></div>
