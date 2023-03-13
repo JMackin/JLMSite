@@ -35,7 +35,7 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -88,12 +88,43 @@
 			<scope>test</scope>
 		</dependency>
 		-->
-
+		
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
+			<groupId>software.amazon.awssdk</groupId>
+		    <artifactId>bom</artifactId>
+		    <version>2.20.22</version>
+		    <type>pom</type>
+		    <scope>import</scope>
 		</dependency>
+
+	  	<dependency>
+	    	<groupId>io.awspring.cloud</groupId>
+		    <artifactId>spring-cloud-aws-context</artifactId>
+		   	<version>2.4.2</version>
+	   	</dependency>
+	   	<dependency>
+	    	<groupId>io.awspring.cloud</groupId>
+	   		<artifactId>spring-cloud-aws-autoconfigure</artifactId>
+	    	<version>2.4.2</version>
+	  	</dependency>
+	   	<dependency>
+	   		<groupId>io.awspring.cloud</groupId>
+	   		<artifactId>
+	   			spring-cloud-starter-aws-messaging
+	   		</artifactId>
+	   		<version>2.4.2</version>
+	   	</dependency>
+	   	<dependency>
+	   		<groupId>io.awspring.cloud</groupId>
+	   		<artifactId>
+	   			spring-cloud-starter-aws-parameter-store-config
+	   		</artifactId>
+	   		<version>2.4.2</version>
+	   	</dependency>
+	   	
 	</dependencies>
+	
+	
 
 	<build>
 		<plugins>
