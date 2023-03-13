@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>The JLM Site</title>
+</head>
+
+<div th:insert="fragments/header"></div>
+	
+	<body>
+	
+		<form th:action="@{/process_register}" th:object="${user}"
+            method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+            <div class="form-group row">
+                <label>E-mail: </label>
+                <div>
+                    <input type="email" th:field="*{email}"required />
+                </div>
+            </div>
+            
+            <div>
+                <label>Username: </label>
+                <div>
+                    <input type="text" th:field="*{uname}"required />
+                </div>
+            </div>
+             
+            <div>
+                <label>Password: </label>
+                <div>
+                    <input type="password" th:field="*{password}" />
+                            <!--HTML 5 thing... required minlength="6" maxlength="10"/>  -->
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label >First Name: </label>
+                <div>
+                    <input type="text" th:field="*{firstName}"/>
+                           <!-- required minlength="2" maxlength="20"/>  -->
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label>Last Name: </label>
+                <div>
+                    <input type="text" th:field="*{lastName}"/>
+                    	<!-- required minlength="2" maxlength="20"/>  -->
+                </div>
+            </div>
+             
+            <div>
+                <button type="submit" class="btn btn-primary">Sign Up!</button>
+            </div>
+        </div>
+        </form>
+	
+	</body>
+	
+	<div th:insert="fragments/footer"><</div>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<link th:href="@{/style/navBar.css}" rel="stylesheet" />
+<meta charset="UTF-8">
+
+	<nav th:fragment="nav_bar" class="navbar">
+	
+		<span id="logohome"><a th:href="@{/}">
+			<img src="/images/JLMSigil_Icon.svg" width="60" height="60"/>
+		</a></span>
+		
+		<span id="navbar_empty_space"></span>
+		
+		<ul id="navlinks">
+			<li><a th:href="@{/MakeAPost}"> Post </a></li>
+		
+			<li><a th:href="@{/BlogPosts}"> Entries </a></li>
+		
+			<li sec:authorize="isAuthenticated()">
+			<a th:href="@{/MyBlogPosts}"> DashBoard</a>
+			</li>
+			
+			<li sec:authorize="!isAuthenticated()">
+			<a th:href="@{/login}">Login</a>
+			</li>
+			
+			
+		</ul>
+		
+	</nav>
+	
+
+</html>

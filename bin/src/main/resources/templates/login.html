@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec = "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>The JLM Site</title>
+</head>
+
+<div th:insert="fragments/header"></div>
+	
+	<body>
+	
+    <div>
+        <h1>Login</h1>
+        
+        <form th:action="@{/login}" method="post">
+   <div> 
+      <label> User Name : <input type="text" name="uname" /> </label> 
+   </div> 
+   <div> 
+   <label> Password: <input type="password" name="password" /> </label> 
+   </div> 
+   <div> 
+      <input type="submit" value="Sign In" /> </div> 
+      </form> 
+        
+        <h3><a th:href="@{/register}">Register</a></h3>
+        
+    </div>
+	
+	</body>
+</html>

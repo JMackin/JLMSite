@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/style/makeAPost.css}">
+
+<div th:insert="fragments/header"></div>
+	
+<body>
+<h2>Dashboard:</h2>
+<p>Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
+<div>
+	<table style="width: 60%;">
+		<thead>
+			<tr>
+				<th align="left">Post Title</th>
+				<th style="width: 20%; ">Post Date</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="bp: ${postList}">
+				<td> <a th:href="@{/ViewAPost/{id}(id=${bp.id})}" th:text="${bp.postTitle}"></a></td>
+				<td> <span th:text="${bp.postDateTime}"></span></td>
+				<td> <a th:href="@{/EditAPost/{id}(id=${bp.id})}">Update</a>
+			
+			</tr>
+		</tbody>
+		
+	</table>
+	</div>
+	<hr>
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Log Out"/>
+		</form>
+	</div>
+
+</body>
+
+<footer th:insert="fragments/footer">
+</footer>
+
+</html>

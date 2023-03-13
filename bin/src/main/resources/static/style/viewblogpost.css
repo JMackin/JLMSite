@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.content_box{
+	
+	border: 3px solid black;
+	margin: 2%;
+}
+
+#content{
+	white-space: pre-wrap
+}

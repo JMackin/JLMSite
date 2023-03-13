@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "com.JLMthingsNstuff.JLMSite.jwtSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'com.JLMthingsNstuff.JLMSite.jwtSecret'"
+  },
+  {
+    "name": "com.JLMthingsNstuff.JLMSite.jwtExpirationMs",
+    "type": "java.lang.String",
+    "description": "A description for 'com.JLMthingsNstuff.JLMSite.jwtExpirationMs'"
+  },
+  {
+    "name": "java.runtime.version",
+    "type": "java.lang.String",
+    "description": "A description for 'java.runtime.version'"
+  }
+]}

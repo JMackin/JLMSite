@@ -28,7 +28,7 @@ public class BlogPostController {
 	@Autowired
 	IsEditableService isEditableService;
 	
-	
+	// ss
 	
 	
 	@GetMapping("/MakeAPost")
