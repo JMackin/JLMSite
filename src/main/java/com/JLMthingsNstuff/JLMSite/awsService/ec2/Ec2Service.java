@@ -1,4 +1,5 @@
 package com.JLMthingsNstuff.JLMSite.awsService.ec2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.ec2.model.Ec2Exception;
 import software.amazon.awssdk.services.ec2.model.RebootInstancesRequest;
@@ -8,6 +9,8 @@ import software.amazon.awssdk.services.ec2.model.StopInstancesRequest;
 @Service
 public class Ec2Service {
 
+    @Autowired
+    Ec2 ec2;
 
     public static void startInstance(Ec2 ec2){
         String iid = ec2.getIid();
