@@ -6,8 +6,9 @@
 	height: 15vw;
 	/*to make the height and width responsive*/
 	width: 15vw;
-	background: url("/images/Clock.png") no-repeat;
-	/*setting our background image*/
+    background-repeat: no-repeat;
+    background-image: url("/images/Clock.png");
+    /*setting our background image*/
 	background-size: 100%;
 	margin-top: 0;
 }
