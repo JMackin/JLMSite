@@ -22,9 +22,8 @@ public class UserRegistrationService {
 	    user.setPassword(encodedPassword);
 	    
 	    user.setRole(Roles.valueOf("REGUSER"));
-	    user.setEnabled(true);
-	     
-	   userRepository.save(user);
+		user.setEnabled(true);
+		userRepository.save(user);
 	     
 	   
 	}

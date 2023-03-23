@@ -1,11 +1,13 @@
 package com.JLMSite.service;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 //import java.util.Set;
 
+import com.JLMSite.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -41,7 +43,9 @@ public class BlogPostService {
 		
 		//Should maybe be decoupled... as per IoC principles
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String uname = ((JLMUserDetails)principal).getUsername();
+
+
+		String uname = (String) principal;
 		
 		blogPost.setPostDateTime(ldtS);
 		
@@ -86,9 +90,9 @@ public class BlogPostService {
 	{
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String uname = ((JLMUserDetails)principal).getUsername();
-		
-		return blogPostRepository.getListOfBlogPostsByUsername(uname);
+//		JLMUserDetails thisUser = (JLMUserDetails) principal;
+
+		return blogPostRepository.getListOfBlogPostsByUsername((String) principal);
 		
 	}
 	
