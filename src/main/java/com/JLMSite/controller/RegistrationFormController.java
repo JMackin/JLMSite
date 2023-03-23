@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.JLMSite.model.User;
 
 @Controller
-public class RegistrationFormController {
+public class
+RegistrationFormController {
 	
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model)

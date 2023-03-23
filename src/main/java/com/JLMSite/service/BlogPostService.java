@@ -21,6 +21,7 @@ import com.JLMSite.repository.BlogPostTitlesDatesAuthors;
 
 
 @Service
+
 public class BlogPostService {
 	
 	@Autowired

@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <head>
 <link th:href="@{/style/main.css}" rel="stylesheet" />
+	<title></title>
 </head>
 
 	<header th:fragment="header">
-		<div th:insert="fragments/navbar"></div>
+		<div th:insert="~{fragments/navbar}"></div>
 	
 	</header>
 		

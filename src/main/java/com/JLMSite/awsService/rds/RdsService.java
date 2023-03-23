@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-@Service
 public class RdsService {
 
     private RdsDBInst rdbInst = new RdsDBInst("DBNAME","1");
@@ -51,11 +50,11 @@ public class RdsService {
 
         private Connection getDBConn(){
 
-            Connection c = null;
+            Connection conn = null;
 
-            try (FileReader endpoint = new FileReader("~/JLMSite/Conf/endpoint");
-                 FileReader uname = new FileReader("~/JLMSite/Conf/uname");
-                 FileReader passwd = new FileReader("~/JLMSite/Conf/passwd"))
+            try (FileReader endpoint = new FileReader("/home/ujlm/JLMSite/Conf/endpoint");
+                 FileReader uname = new FileReader("/home/ujlm/JLMSite/Conf/uname");
+                 FileReader passwd = new FileReader("/home/ujlm/JLMSite/Conf/passwd"))
             {
                 try {
                     BufferedReader[] brList = new BufferedReader[3];
@@ -71,7 +70,7 @@ public class RdsService {
                             br.read(carr[x]);
                         }
                         Class.forName("org.postgresql.Driver");
-                        c = DriverManager
+                        conn = DriverManager
                                 .getConnection(
                                         brList[0].toString(),
                                         brList[1].toString(),
@@ -92,7 +91,7 @@ public class RdsService {
                 System.exit(0);
             }
 
-            return c;
+            return conn;
         }
 
         public void accessDB(Rds rds)

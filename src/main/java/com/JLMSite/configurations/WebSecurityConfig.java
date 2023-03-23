@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.jackson2.*;
 
 import javax.sql.DataSource;
  
@@ -52,12 +53,10 @@ public class WebSecurityConfig{
     	authenticationManagerBuilder.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
     	
     	AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
-    	
-    	
+
+
     	http
-    		.authorizeHttpRequests((authz) -> authz.requestMatchers("/MakeAPost").authenticated()
-    				.requestMatchers("/MyBlogPosts").authenticated()
-    				.anyRequest().permitAll()
+    		.authorizeHttpRequests((authz) -> authz.anyRequest().permitAll()
     				)
     		.authenticationManager(authenticationManager)
     		.formLogin((flogin) -> flogin
@@ -73,7 +72,7 @@ public class WebSecurityConfig{
 					.logoutSuccessUrl("/")
 					.permitAll()
     				);
-    	
+
     	return http.build();
     	
     	
