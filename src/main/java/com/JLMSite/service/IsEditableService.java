@@ -22,9 +22,10 @@ public class IsEditableService{
 		//TODO use .isAnonymous() function instead
 		if (!principal.toString().equals("anonymousUser"))
 		{
-			
-			String author = ((JLMUserDetails)principal).getUsername();
-			
+
+			JLMUserDetails jlmUserDetails = (JLMUserDetails) principal;
+			String author = jlmUserDetails.getUsername();
+
 			isEditable = 
 					(blogpost.getUname().equals(author)) ? true : 
 						(auth != null && auth.getAuthorities().stream()

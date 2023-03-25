@@ -1,10 +1,12 @@
 package com.JLMSite.controller;
 
 import com.JLMSite.model.BlogPost;
+import com.JLMSite.model.JLMUserDetails;
 import com.JLMSite.repository.BlogPostTitlesDatesAuthors;
 import com.JLMSite.service.BlogPostService;
 import com.JLMSite.service.IsEditableService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -99,12 +101,19 @@ public class BlogPostController {
 	@GetMapping("/MyBlogPosts")
 	public String showMyDashBoard(Model model)
 	{
-		
-		List<BlogPostTitlesDatesAuthors> myPosts = blogPostService.getJustMyBlogPosts();
-		
-		model.addAttribute("postList",myPosts);
-		
-		return "my_blog_posts";
+
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal.toString() != "anonymousUser")
+		{
+			List<BlogPostTitlesDatesAuthors> myPosts = blogPostService.getJustMyBlogPosts();
+			model.addAttribute("postList",myPosts);
+
+			return "my_blog_posts";
+		}else{
+			return "redirect:/login";
+		}
+
 	}
 	
 	

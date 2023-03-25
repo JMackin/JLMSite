@@ -44,13 +44,17 @@ public class BlogPostService {
 		//Should maybe be decoupled... as per IoC principles
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+		if (principal.toString() != "anonymousUser")
+		{
+			JLMUserDetails uname = (JLMUserDetails) principal;
+			blogPost.setUname(uname.getUsername());
+		}else
+		{
+			blogPost.setUname(principal.toString());
+		}
 
-		String uname = (String) principal;
-		
 		blogPost.setPostDateTime(ldtS);
-		
-		blogPost.setUname(uname);
-		
+
 		blogPostRepository.save(blogPost);
 	}
 	
@@ -88,12 +92,13 @@ public class BlogPostService {
 	
 	public List<BlogPostTitlesDatesAuthors> getJustMyBlogPosts()
 	{
-		
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//		JLMUserDetails thisUser = (JLMUserDetails) principal;
 
-		return blogPostRepository.getListOfBlogPostsByUsername((String) principal);
-		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		JLMUserDetails uname = (JLMUserDetails) principal;
+
+		return blogPostRepository.getListOfBlogPostsByUsername(uname.getUsername());
+
 	}
 	
 	public void editBlogPost(BlogPost blogPost, Long id)
