@@ -1,15 +1,17 @@
 @charset "UTF-8";
 
 #clockContainer {
-	position: relative;
-	margin: auto;
-	height: 15vw;
-	/*to make the height and width responsive*/
-	width: 15vw;
-	background: url("/images/Clock.png") no-repeat;
-	/*setting our background image*/
-	background-size: 100%;
-	margin-top: 0;
+    position: absolute;
+    margin: auto;
+    margin-top: auto;
+    margin-left: auto;
+    height: 15em;
+    width: 15em;
+    background: url("/images/Clock.png") no-repeat;
+    background-size: auto;
+    background-size: 100%;
+    margin-top: 3%;
+    margin-left: 80%;
 }
 
 #hour,

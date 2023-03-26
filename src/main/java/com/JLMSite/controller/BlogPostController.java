@@ -108,8 +108,11 @@ public class BlogPostController {
 		{
 			List<BlogPostTitlesDatesAuthors> myPosts = blogPostService.getJustMyBlogPosts();
 			model.addAttribute("postList",myPosts);
-
+			JLMUserDetails jlmud = (JLMUserDetails) principal;
+			String username = jlmud.getUsername();
+			model.addAttribute("username", username);
 			return "my_blog_posts";
+
 		}else{
 			return "redirect:/login";
 		}

@@ -4,35 +4,46 @@
 <head>
 <link th:href="@{/style/clock.css}" rel="stylesheet" />
 <link th:href="@{/style/banner.css}" rel="stylesheet" />
+	<link th:href="@{/style/main.css}" rel="stylesheet" />
 	<title>The JLM Site</title>
 </head>
 
 	<!-- Inserts Header html with banner from fragments-->
-	<div th:insert="fragments/header"></div>
-	
-		
-	<div th:fragment="banner" class="banner_container">
-		<div id="banner_left"></div>
-		
-		<div id="home_banner">
-			<a th:href="@{/}">
-			<img id="banner_img" alt="JLM Site" src="/images/ItsTheJLMSite.png">
-			</a>
-		</div>
-		
-		<div id="banner_right"></div>
+
+
+
+<div th:fragment="banner" class="banner_container">
+	<div id="home_banner">
+		<a th:href="@{/}">
+			<img id="banner_img" alt="JLM Site" src="/images/jlmworks.png">
+		</a>
 	</div>
 
-	 
-	<body>
-	
+
 	<script type="text/javascript" src="/scripts/clock.js"></script>
 	<div id="clockContainer">
-        <div id="hour"></div>
-        <div id="minute"></div>
-        <div id="second"></div>
-    </div>	
+		<div id="hour"></div>
+		<div id="minute"></div>
+		<div id="second"></div>
+	</div>
+
+</div>
+
+<ul id="navlinks">
+	<li><a th:href="@{/Resume}"> Resume </a></li>
+	<li><a th:href="@{/MakeAPost}"> Post </a></li>
+
+	<li><a th:href="@{/BlogPosts}"> Entries </a></li>
+
+	<li>
+		<a th:href="@{/MyBlogPosts}"> DashBoard</a>
+	</li>
+
+</ul>
+
+<body>
 	
+
 	
 	
 	</body>

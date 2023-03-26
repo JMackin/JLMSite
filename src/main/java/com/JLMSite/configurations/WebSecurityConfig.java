@@ -42,8 +42,7 @@ public class WebSecurityConfig{
         return authProvider;
     }
     
-    
-    
+
     @Bean
     public SecurityFilterChain secFilterChain(HttpSecurity http) throws Exception
     {

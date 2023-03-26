@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <!-- This is for using Thymeleaf -->
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.w3.org/1999/xhtml">
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/style/makeAPost.css}">
 
-<div th:insert="fragments/header"></div>
-	
+<div th:insert="~{fragments/header}"></div>
+
 <body>
 <h2>Dashboard:</h2>
-<p>Welcome <b>User</b></p>
+<p>Welcome <b th:utext="${username}"></b></p>
 <div>
 	<table style="width: 60%;">
 		<thead>
@@ -39,7 +40,7 @@
 
 </body>
 
-<footer th:insert="fragments/footer">
+<footer th:insert="~{fragments/footer}">
 </footer>
 
 </html>

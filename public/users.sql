@@ -1,3 +1,5 @@
+create type roles as enum ('REGUSER', 'BIGUSER', 'JLMMASTER');
+
 create table users
 (
     id         serial,

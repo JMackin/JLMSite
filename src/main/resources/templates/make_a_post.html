@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/style/makeAPost.css}">
 
-<div th:insert="fragments/header"></div>
+<div th:insert="~{fragments/header}"></div>
 	
 
 <body>
@@ -37,6 +37,7 @@
 	<!-- The link which sends GET request to "/"  -->
 </body>
 
-<footer th:insert="fragments/footer"></footer>
+<footer th:insert="~{fragments/footer}">
+</footer>
 
 </html>

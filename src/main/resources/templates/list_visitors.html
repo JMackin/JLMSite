@@ -6,7 +6,7 @@
 <title>Visitor Management System</title>
 </head>
 
-<div th:insert="fragments/header"></div>
+<div th:insert="~{fragments/header}"></div>
 	
 <body>
 
@@ -25,7 +25,7 @@
 			</thead>
 
 			<tbody>
-			<!-- You can acccess model attributes which are added in a Controller(VisitorController.java) with ${attributeName}.
+			<!-- You can access model attributes which are added in a Controller(VisitorController.java) with ${attributeName}.
 				 In this case, it is "${visitorList}".
 			     To show all visitor data in this table, you need to use "th:each" in the thymeleaf template and iterate the visitors of visitorList -->
 				<tr th:each="visitor: ${visitorList}">
@@ -47,7 +47,7 @@
 	</div>
 </body>
 
-<footer th:insert="fragments/footer">
+<footer th:insert="~{fragments/footer}">
 </footer>
 
 </html>
