@@ -5,13 +5,16 @@
     margin: auto;
     margin-top: auto;
     margin-left: auto;
-    height: 15em;
-    width: 15em;
+    margin-top: auto;
+    margin-left: auto;
+    height: 17vw;
+    width: 17vw;
     background: url("/images/Clock.png") no-repeat;
+    background-size: auto;
     background-size: auto;
     background-size: 100%;
     margin-top: 3%;
-    margin-left: 80%;
+    margin-left: 67%;
 }
 
 #hour,
