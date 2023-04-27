@@ -7,5 +7,5 @@ create table visitors
 );
 
 alter table visitors
-    owner to postgres;
+    owner to dbajlm;
 

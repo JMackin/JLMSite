@@ -1,7 +1,20 @@
-cloud:
- aws:
-   credentials:
-     profile-name: JLM2admin
-   region:
-     auto: true
-     
+spring:
+  jpa:
+    hibernate:
+      dialect: PostgresSQLDialect
+    show-sql: true
+  datasource:
+    driverClassName: org.postgresql.Driver
+    password: 7CCaEJEO0e4Hu97kh167ftnAcyzVv9CwDL1HvWRbv1WGbUQ4WlT41vur5VveHdf8Y01djNUizQtlHAVbjOAp57Z22unrRLfCoizxh
+    username: dbajlm
+    url: jdbc:postgresql://database-1.cfxmjbbdcuo8.us-west-2.rds.amazonaws.com:5432/postgres
+
+server:
+  port: 443
+  ssl:
+    key-store: /home/ec2-user/keystore.p12
+    key-store-type: PKCS12
+    key-alias: tomcat
+    key-store-password: $1$aL4mdVKL$/ciIDjOEuPqnDOYEQo6WZ1
+    enabled: true
+

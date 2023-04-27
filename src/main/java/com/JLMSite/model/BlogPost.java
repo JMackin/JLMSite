@@ -2,6 +2,8 @@ package com.JLMSite.model;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
+
 
 @Entity
 @Table(name = "blogposts")
@@ -18,7 +20,7 @@ public class BlogPost {
 	private String postContent;
 	
 	@Column(name="post_date_time")
-	private String postDateTime;
+	private Timestamp postDateTime;
 	
 	@Column(name="post_title")
 	private String postTitle;
@@ -38,12 +40,12 @@ public class BlogPost {
 		this.id = id;
 	}
 
-	public String getPostDateTime() {
+	public Timestamp getPostDateTime() {
 		
 		return postDateTime;
 	}
 
-	public void setPostDateTime(String postDT) {
+	public void setPostDateTime(Timestamp postDT) {
 		
 		this.postDateTime = postDT;
 	}

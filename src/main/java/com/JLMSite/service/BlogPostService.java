@@ -1,6 +1,7 @@
 package com.JLMSite.service;
 
 import java.security.Principal;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -38,11 +39,12 @@ public class BlogPostService {
 	{
 		//Gotta update the date time column manually if the form doesnt pass a value to the model
 		final LocalDateTime ldt = LocalDateTime.now();
-		final DateTimeFormatter sdf = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
-		String ldtS = sdf.format(ldt).toString();
+		Timestamp ldtTS = Timestamp.valueOf(ldt);
+		//String ldtS = sdf.format(ldt).toString();
 		
 		//Should maybe be decoupled... as per IoC principles
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
 
 		if (principal.toString() != "anonymousUser")
 		{
@@ -53,7 +55,7 @@ public class BlogPostService {
 			blogPost.setUname(principal.toString());
 		}
 
-		blogPost.setPostDateTime(ldtS);
+		blogPost.setPostDateTime(ldtTS);
 
 		blogPostRepository.save(blogPost);
 	}

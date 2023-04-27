@@ -15,5 +15,5 @@ create table users
 );
 
 alter table users
-    owner to postgres;
+    owner to dbajlm;
 

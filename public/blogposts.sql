@@ -8,5 +8,5 @@ create table blogposts
 );
 
 alter table blogposts
-    owner to postgres;
+    owner to dbajlm;
 

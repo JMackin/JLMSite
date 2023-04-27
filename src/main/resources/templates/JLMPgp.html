@@ -1,6 +1,18 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
+<head>
+    <title>JLM's PGP Key</title>
+    <style>
+        a:link { color: #000000; text-decoration: underline }
+    </style>
+</head>
 <body>
+<div th:insert="~{fragments/header}"></div>
+<h2><a href="/keys/JohnLutherMackin_0xD72351BC_public.asc">Public Key</a></h2>
+<h4><a href="https://keys.openpgp.org/vks/v1/by-fingerprint/3079EED1E7333EAE0259C3941C873A40D72351BC">keys.openpgp.org</a></h4>
+<h4><a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x1C873A40D72351BC">pgp.mit.edu</a></h4>
+<h4><a href="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3079eed1e7333eae0259c3941c873a40d72351bc">keyserver.ubuntu.com</a></h4>
 <textarea readonly rows="130" cols="80">
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Comment: User-ID:	John Luther Mackin <JohnLutherMackin@jlmw.xyz>

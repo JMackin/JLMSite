@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class SignatureController {
-    @GetMapping("/PGP_Signature")
+    @GetMapping("/PGP")
     public String resume()
     {
         return "JLMPgp.html";
