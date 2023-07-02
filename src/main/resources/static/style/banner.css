@@ -1,30 +1,92 @@
 .banner_container {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	width: 40%;
-	height: 3%;
+	display: grid;
+	justify-content:flex-start;
+	width: 100%;
+	height: 20%;
 	margin: 3%;
 	align-content: center;
 }
 
 #home_banner {
 	width: 100%;
-	height: 64%;
-	align-self: center;
-	padding: 5px;
+	height: 100%;
+	align-self:initial;
+	align-content: revert;
+	padding: -15px;
 	position: relative;
-	top: 0vw;
-	
+	margin-inline: -17%;
+
 }
 
-#banner_img {
-	padding: 0.2%;
-	padding-top: 0.2%;
-	width: 101%;
-	height: 47%;
-	margin-left: 35%;
-	align-self: center;
-	padding-top: 2%;
+#banner_link{
+	position:relative;
+	height: 100%;
+	width: 100%;
+}
 
+/*#banner_img {*/
+/*	padding: 0.2%;*/
+/*	padding-top: 0.2%;*/
+/*	width: 101%;*/
+/*	height: 47%;*/
+/*	margin-left: 35%;*/
+/*	align-self: center;*/
+/*	padding-top: 2%;*/
+
+/*}*/
+
+#banner_imga {
+	position: absolute;
+	size: 2em;
+}
+
+#banner_imgb {
+	position: absolute;
+	size: 2em;
+}
+
+#clockContainer {
+	position: relative;
+	margin: 0;
+
+	height: 11em;
+	width: 11em;
+	background: url("/images/Clock.png") no-repeat;
+	background-size: 11em;
+	margin-top: 4em;
+	margin-left: 3em;
+}
+
+#hour,
+#minute,
+#second {
+	position: absolute;
+	background: black;
+	border-radius: 15vw;
+	transform-origin: bottom;
+}
+
+#hour {
+	width: 1.8%;
+	height: 22%;
+	top: 27%;
+	left: 48.85%;
+	opacity: 0.8;
+}
+
+#minute {
+	width: 1.6%;
+	height: 30%;
+	top: 19%;
+	left: 48.9%;
+	opacity: 0.8;
+}
+
+#second {
+	color: grey;
+	width: 1%;
+	height: 35%;
+	top: 14%;
+	left: 49.25%;
+	opacity: 0.5;
 }

@@ -74,7 +74,7 @@ public class VisitorController {
 	}
 	
 	// delete the visitor by id
-	@GetMapping("/delete/{id}")
+	@GetMapping("/deletevisitor/{id}")
 	public String deleteVisitorById(@PathVariable Long id, Model model)
 	{
 		visitorService.deleteVisitorById(id);
@@ -86,3 +86,4 @@ public class VisitorController {
 	
 	
 }
+

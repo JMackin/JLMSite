@@ -73,7 +73,7 @@ public class BlogPostService {
 		
 	}
 	
-	public String deletePostById(Long id)
+	public void deletePostById(Long id)
 	{
 		Optional<BlogPost> blogPost = blogPostRepository.findById(id);
 		
@@ -81,8 +81,9 @@ public class BlogPostService {
 		{
 			throw new RuntimeException("No post with that ID");
 		}
+		blogPostRepository.deleteBlogPostById(id);
 		
-		return "Post titled " + blogPost.get().getPostTitle() + " from " + blogPost.get().getPostDateTime();
+//		return "Post titled " + blogPost.get().getPostTitle() + " from " + blogPost.get().getPostDateTime();
 	}
 	
 	public List<BlogPostTitlesDatesAuthors> getListOfBlogEntryTitles()

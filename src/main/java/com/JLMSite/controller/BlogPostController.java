@@ -119,16 +119,14 @@ public class BlogPostController {
 
 	}
 	
-	
-	/*
+
 	@GetMapping("/delete/{id}")
 	public String deletePostById(@PathVariable Long id, Model model)
 	{
-		postService.deletePostById(id);
+		blogPostService.deletePostById(id);
 		
 		return "redirect:/";
 		
 	}
-	*/
 	
 }

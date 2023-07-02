@@ -3,16 +3,10 @@
 #clockContainer {
     position: absolute;
     margin: auto;
-    margin-top: auto;
-    margin-left: auto;
-    margin-top: auto;
-    margin-left: auto;
-    height: 17vw;
-    width: 17vw;
+    height: 9em;
+    width: 9em;
     background: url("/images/Clock.png") no-repeat;
     background-size: auto;
-    background-size: auto;
-    background-size: 100%;
     margin-top: 3%;
     margin-left: 67%;
 }

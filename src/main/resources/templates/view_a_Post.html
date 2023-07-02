@@ -20,6 +20,7 @@
 
 <a th:href="@{/BlogPosts}">Back</a>
 <span th:if="${editable}"> || <a th:href="@{/EditAPost/{id}(id=${blogpost.id})}"> Edit Post</a></span>
+<span th:if="${editable}"> || <a th:href="@{/delete/{id}(id=${blogpost.id})}"> Delete Post</a></span>
 
 </body>
 

@@ -3,39 +3,25 @@
 a {
 	text-decoration: none;
 	color: black;
-	
+
 }
 a:hover {
 	color: #849080;
 }
 
-.navbar {
-	display: flex;
-	justify-content: flex-end;
-	flex-direction: row;
-	margin-top: 2%;
-	margin-left: 2%;
-	margin-right: 2%;
-	font-size: 1.2em;
-	column-gap: 3px;
-	flex-wrap: nowrap;
-	
+.nav_container {
+	position: absolute;
+	margin-top: 4.5em;
+	font-size: x-large;
+	letter-spacing: 3px;
+	border: solid;
+	padding-inline-end: 30px;
 }
-#navbar_empty_space
-{
-	flex-grow: 1;
-}
-
-#logohome{
-	padding-left: 3px;
-	padding-right: 3px;
-	margin: 0px 2.5px;
-}
-
 
 #navlinks li {
-	display: inline;
-	list-style: none;
-	padding-left: 35px;
-	padding-right: 5px;
+	position: relative;
+	display: inline list-item;
+	list-style: None;
+	padding-left: 0px;
+	padding-right: 0px;
 }
